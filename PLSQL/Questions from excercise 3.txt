@@ -1,0 +1,18 @@
+1)An Oracle VIEW, in essence, is a virtual table that does not physically exist. Rather, it is created by a query joining one or more tables.
+2) 
+
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+DROP VIEW view_name;
+
+CREATE OR REPLACE VIEW view_name AS
+SELECT new_column1, new_column2, ...
+FROM new_table_name
+WHERE new_condition;
+
+3) Views in Oracle are created at the schema level, just like tables. 
+4) Views in Oracle are virtual representations of data from underlying tables. They do not store data themselves.They present the most up-to-date information from the tables they are based on. 
+5) Views make queries faster to write, but they don't improve the underlying query performance
