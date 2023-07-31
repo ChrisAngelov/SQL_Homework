@@ -80,4 +80,4 @@ DELETE FROM Contacts WHERE customer_id is null;
 INSERT INTO Orders VALUES (106,2,'pending', 5, '01-NOV-17');
 INSERT INTO Order_items VALUES (106,20,21, 6, 200);
 
-select * from orders o join order_items oi on (oi.order_id = o.order_id) where o.order_id = 106; ```
+select * from orders o join order_items oi on (oi.order_id = o.order_id) where o.order_id = 106;
