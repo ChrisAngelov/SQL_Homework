@@ -1,15 +1,15 @@
 # One of the SQL homeworks which I completed during my studies at HTL Leonding.
 
 1. Select all unique product names.
-   ```SELECT DISTINCT product_name FROM Products; ``` 
+      ```SELECT DISTINCT product_name FROM Products; ``` 
 3. Select locations which do have at least one warehouse.
-   ```Select l.location_id, address, postal_code,city,state,country_id from Locations l inner join Warehouses w on (l.location_id = w.location_id);```
+      ```Select l.location_id, address, postal_code,city,state,country_id from Locations l inner join Warehouses w on (l.location_id = w.location_id);```
 
 4. Select locations which do not have a warehouse and don’t have a state defined.
-   ``` Select l.location_id, address, postal_code,city,state,country_id from Locations l left join Warehouses w on (w.location_id != l.location_id) where l.state is null;```
+      ``` Select l.location_id, address, postal_code,city,state,country_id from Locations l left join Warehouses w on (w.location_id != l.location_id) where l.state is null;```
 
 5. Select locations in the United States and sort them by their postal code in descending order.
-   ```Select w.warehouse_name from Warehouses w join locations l on (l.location_id = w.location_id);```
+      ```Select w.warehouse_name from Warehouses w join locations l on (l.location_id = w.location_id);```
 
 8. Select for every location the name of the warehouse or none if there isn’t one.
 9. Select for all products the total quantity stored at all warehouses, sorted by product id.
