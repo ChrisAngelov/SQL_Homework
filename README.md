@@ -24,15 +24,26 @@ items
 
 ```
 /* 1 */ 
-SELECT DISTINCT product_name FROM Products;
+SELECT DISTINCT product_name
+FROM Products;
 /* 2 */ 
-Select l.location_id, address, postal_code,city,state,country_id from Locations l inner join Warehouses w on (l.location_id = w.location_id);
+Select l.location_id, address, postal_code,city,state,country_id
+from Locations l
+inner join Warehouses w on (l.location_id = w.location_id);
 /* 3 */ 
-Select l.location_id, address, postal_code,city,state,country_id from Locations l left join Warehouses w on (w.location_id != l.location_id) where l.state is null;
+Select l.location_id, address, postal_code,city,state,country_id
+from Locations l
+left join Warehouses w on (w.location_id != l.location_id)
+where l.state is null;
 /* 4 */ 
-select location_id, address, postal_code,city,state,country_id from locations where country_id = 'US' order by postal_code desc;
+select location_id, address, postal_code,city,state,country_id
+from locations
+where country_id = 'US'
+order by postal_code desc;
 /* 5 */ 
-Select w.warehouse_name from Warehouses w join locations l on (l.location_id = w.location_id);
+Select w.warehouse_name
+from Warehouses w
+join locations l on (l.location_id = w.location_id);
 
 /* 6*/ 
 SELECT p.product_id, p.product_name, SUM(i.quantity) AS total_quantity
