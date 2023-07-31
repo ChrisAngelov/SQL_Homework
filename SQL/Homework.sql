@@ -9,14 +9,31 @@ select location_id, address, postal_code,city,state,country_id from locations wh
 /* 5 */ 
 Select w.warehouse_name from Warehouses w join locations l on (l.location_id = w.location_id);
 
-/* 6 not working
-select p.product_id, sum(i.quantity) from products p inner join Inventories i on (p.product_id = i.product_id)
-group by p.product_id, sum(i.quantity);*/ 
+/* 6*/ 
+SELECT p.product_id, p.product_name, SUM(i.quantity) AS total_quantity
+FROM products p
+LEFT JOIN inventories i ON p.product_id = i.product_id
+GROUP BY p.product_id, p.product_name
+ORDER BY p.product_id;
 
-/* 7 not working due to this*/ 
+/* 7 */ 
+SELECT p.product_name, SUM(i.quantity) AS total_quantity
+FROM products p
+LEFT JOIN inventories i ON p.product_id = i.product_id
+GROUP BY p.product_name
+HAVING SUM(i.quantity) BETWEEN 250 AND 350
+ORDER BY total_quantity ASC;
+/* 8 */
+SELECT 
+    c1.name AS company_name,
+    ROUND(((c1.credit_limit - avg_credit_limit) / avg_credit_limit) * 100, 2) AS credit_limit_relation
+FROM
+    customers c1
+CROSS JOIN
+    (SELECT AVG(credit_limit) AS avg_credit_limit FROM customers WHERE credit_limit <= 3000) avg_table
+WHERE
+    c1.credit_limit > 3000;
 
-/* 8 ????*/
-select name from customers where credit_limit > 3000;
 /* 9 */ 
 select * from customers where credit_limit  < 4500 and credit_limit * 1.3 > 4500; 
 
